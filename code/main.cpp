@@ -1,7 +1,7 @@
 #include "mbed.h"
 #include "arm_book_lib.h"
 
-//=====[Defines]===============================================================
+
 
 #define NUMBER_OF_KEYS                           4
 #define BLINKING_TIME_GAS_ALARM               1000
@@ -17,7 +17,7 @@
 #define EVENT_NAME_MAX_LENGTH                   14
 #define MQ2_THRESHOLD                           0.5 
 
-//=====[Declaration of public data types]======================================
+
 
 typedef enum {
     MATRIX_KEYPAD_SCANNING,
@@ -30,7 +30,7 @@ typedef struct systemEvent {
     char typeOfEvent[EVENT_NAME_MAX_LENGTH];
 } systemEvent_t;
 
-//=====[Declaration and initialization of public global objects]===============
+
 
 DigitalIn alarmTestButton(BUTTON1);
 AnalogIn mq2(A3);  
@@ -48,7 +48,7 @@ AnalogIn lm35(A1);
 DigitalOut keypadRowPins[KEYPAD_NUMBER_OF_ROWS] = {PB_3, PB_5, PC_7, PA_15};
 DigitalIn keypadColPins[KEYPAD_NUMBER_OF_COLS]  = {PB_12, PB_13, PB_15, PC_6};
 
-//=====[Declaration and initialization of public global variables]=============
+
 
 bool alarmState    = OFF;
 bool incorrectCode = false;
@@ -90,7 +90,7 @@ matrixKeypadState_t matrixKeypadState;
 int eventsIndex            = 0;
 systemEvent_t arrayOfStoredEvents[EVENT_MAX_STORAGE];
 
-//=====[Declarations (prototypes) of public functions]=========================
+
 
 void inputsInit();
 void outputsInit();
@@ -115,7 +115,7 @@ void matrixKeypadInit();
 char matrixKeypadScan();
 char matrixKeypadUpdate();
 
-//=====[Main function, the program entry point after power on or reset]========
+
 
 int main()
 {
